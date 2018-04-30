@@ -1,0 +1,17 @@
+/* line 2, ../sass/codeconsole.scss */
+body .no-border {
+  border: none !important;
+}
+/* line 6, ../sass/codeconsole.scss */
+body .no-shadow {
+  box-shadow: none !important;
+}
+/* line 10, ../sass/codeconsole.scss */
+body .hidden {
+  display: none;
+}
+/* line 14, ../sass/codeconsole.scss */
+body #editorUsingStatement {
+  width: 100%;
+  height: 100px;
+}

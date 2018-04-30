@@ -1,0 +1,8 @@
+﻿[
+  {
+    "outputFileName": "scripts/codeconsole.min.js",
+    "inputFiles": [
+      "scripts/codeconsole.js"
+    ]
+  }
+]
