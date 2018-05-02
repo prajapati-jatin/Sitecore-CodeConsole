@@ -131,7 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\Applications\CodeConsole.cs" />
+    <Compile Include="Client\Applications\CodeRunner.cs" />
+    <Compile Include="Client\Applications\RunnerOutput.cs" />
     <Compile Include="Client\Commands\RuntimeQueryState.cs" />
+    <Compile Include="Client\Controls\CompleteMessage.cs" />
+    <Compile Include="Client\Controls\ConsoleJobMonitor.cs" />
+    <Compile Include="Client\Controls\SessionCompleteEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SCCodeConsole.aspx.cs">
       <DependentUpon>SCCodeConsole.aspx</DependentUpon>
@@ -147,9 +152,7 @@
     <Content Include="front-end\stylesheets\codeconsole.css" />
     <Content Include="SCCodeConsole.aspx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client\Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Foundation\CodeConsole\code\Sitecore.Foundation.CodeConsole.csproj">
       <Project>{6b9bfc73-426f-44bb-994f-61416cbc7b19}</Project>

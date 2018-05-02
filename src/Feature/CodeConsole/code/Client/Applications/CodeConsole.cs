@@ -1,8 +1,10 @@
 ﻿using Sitecore.Configuration;
 using Sitecore.Data.Items;
+using Sitecore.Feature.CodeConsole.Client.Controls;
 using Sitecore.Layouts;
 using Sitecore.Mvc.Controllers;
 using Sitecore.Security;
+using Sitecore.Security.Accounts;
 using Sitecore.Web;
 using Sitecore.Web.UI.HtmlControls;
 using Sitecore.Web.UI.Sheer;
@@ -88,11 +90,11 @@ namespace Sitecore.Feature.CodeConsole.Client.Applications
             }
         }
 
-        private readonly Sitecore.Foundation.CodeConsole.SCCodeConsole compiler;
+        private readonly Sitecore.Foundation.CodeConsole.Console console;
 
         public CodeConsole()
         {
-            compiler = new Sitecore.Foundation.CodeConsole.SCCodeConsole();
+            console = new Sitecore.Foundation.CodeConsole.Console();
             this.Compiled = false;
         }
 
@@ -100,13 +102,13 @@ namespace Sitecore.Feature.CodeConsole.Client.Applications
         protected virtual void Compile(ClientPipelineArgs args)
         {
             this.Compiled = false;
-            args.Parameters.Add("message", "codeconsole:compile");            
+            args.Parameters.Add("message", "codeconsole:compile");
             UpdateElementText("ScriptResult", "Build started...");
             this.CompileCode(this.Editor.Value);
             CodeModified = false;
         }
 
-        [HandleMessage("codeconsole:execute", true)]
+
         protected virtual void Execute(ClientPipelineArgs args)
         {
             if (!Compiled)
@@ -118,7 +120,7 @@ namespace Sitecore.Feature.CodeConsole.Client.Applications
                 args.Parameters.Add("message", "codeconsole:execute");
                 try
                 {
-                    var output = this.compiler.ExecuteAssembly(AssemblyPath);
+                    var output = this.console.ExecuteAssembly(AssemblyPath);
                     UpdateElementText("ScriptResult", output);
                 }
                 catch (Exception ex)
@@ -129,11 +131,21 @@ namespace Sitecore.Feature.CodeConsole.Client.Applications
             }
         }
 
+        [HandleMessage("codeconsole:execute", true)]
+        protected virtual void Run(ClientPipelineArgs args)
+        {
+            String userName = String.Empty;
+            this.ScriptRunning = true;
+            this.UpdateRibbon();
+            userName = Sitecore.Context.User?.Name;
+            var codeRunner = new CodeRunner(null, null, this.Editor.Value, true);
+        }
+
         private void CompileCode(String codeToCompile)
         {
-            this.ScriptRunning = true;            
-            CompilerResults results = this.compiler.Compile(codeToCompile);
-            if(results.NativeCompilerReturnValue == 0)
+            this.ScriptRunning = true;
+            CompilerResults results = this.console.Compile(codeToCompile);
+            if (results.NativeCompilerReturnValue == 0)
             {
                 AssemblyPath = results.PathToAssembly;
                 this.UpdateElementText("ScriptResult", "Build succeeded");
@@ -165,14 +177,41 @@ namespace Sitecore.Feature.CodeConsole.Client.Applications
             Context.ClientPage.ClientResponse.SetInnerHtml(elementName, message);
         }
 
+        public ConsoleJobMonitor Monitor
+        {
+            get;
+            private set;
+        }
+
         protected override void OnLoad(EventArgs e)
-        {            
+        {
             base.OnLoad(e);
+            if (this.Monitor == null)
+            {
+                if (Context.ClientPage.IsEvent)
+                {
+                    this.Monitor = (ConsoleJobMonitor)Context.ClientPage.FindControl("Monitor");
+                }
+                else
+                {
+                    this.Monitor = new ConsoleJobMonitor()
+                    {
+                        ID = "Monitor"
+                    };
+                    Context.ClientPage.Controls.Add(this.Monitor);
+                }
+            }
+            this.Monitor.JobFinished += MonitorJobFinished;
             if (!Context.ClientPage.IsEvent)
             {
                 this.UpdateRibbon();
                 this.Editor.Value = GetDefaultClassCode();
             }
+        }
+
+        private void MonitorJobFinished(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private String GetDefaultClassCode()

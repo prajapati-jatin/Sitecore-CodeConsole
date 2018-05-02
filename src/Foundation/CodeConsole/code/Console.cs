@@ -8,12 +8,12 @@ using System.Web;
 
 namespace Sitecore.Foundation.CodeConsole
 {
-    public class SCCodeConsole
+    public class Console
     {
         private String _codeToExecute;
         private Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider _csProvider;
 
-        public SCCodeConsole()
+        public Console()
         {
             this._csProvider = new Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider();
         }
