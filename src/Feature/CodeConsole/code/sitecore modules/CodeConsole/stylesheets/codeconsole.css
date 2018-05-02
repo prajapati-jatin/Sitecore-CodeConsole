@@ -1,4 +1,131 @@
-/* line 2, ../sass/codeconsole.scss */
+/* line 1, ../sass/codeconsole.scss */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 5, ../sass/codeconsole.scss */
+body {
+  overflow: hidden;
+}
+/* line 7, ../sass/codeconsole.scss */
 body #terminalCode {
   height: 500px;
+}
+/* line 11, ../sass/codeconsole.scss */
+body .scRibbon {
+  position: relative;
+}
+/* line 15, ../sass/codeconsole.scss */
+body #scRibbonToggle {
+  display: none;
+}
+/* line 19, ../sass/codeconsole.scss */
+body .console {
+  background-color: #012456;
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+  overflow: auto;
+  white-space: pre-wrap;
+  width: 99%;
+}
+/* line 30, ../sass/codeconsole.scss */
+body .console a {
+  color: #ffa;
+}
+/* line 34, ../sass/codeconsole.scss */
+body .console a:visited {
+  color: #ffa;
+}
+/* line 38, ../sass/codeconsole.scss */
+body .console a:hover {
+  color: #ffa;
+  text-decoration: underline;
+}
+/* line 43, ../sass/codeconsole.scss */
+body .console a:active {
+  color: #ffa;
+  text-decoration: underline;
+}
+/* line 49, ../sass/codeconsole.scss */
+body .pre {
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+}
+/* line 54, ../sass/codeconsole.scss */
+body #Result {
+  margin: 0 !important;
+  padding: 3px 0 2px 3px !important;
+  position: relative;
+}
+/* line 60, ../sass/codeconsole.scss */
+body #ScriptResult {
+  left: 0;
+  overflow: auto;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  font-size: 15px;
+}
+/* line 69, ../sass/codeconsole.scss */
+body #ScriptResult pre {
+  margin: 4px 2px !important;
+  z-index: 0;
+  position: absolute;
+}
+/* line 75, ../sass/codeconsole.scss */
+body #StatusBar {
+  height: 20px;
+  margin: 2px 5px 0 8px;
+  overflow: hidden;
+  padding: 0 0 3px 0;
+}
+/* line 81, ../sass/codeconsole.scss */
+body #StatusBar .status-bar-panel {
+  background-color: white;
+  border: solid 1px silver;
+  padding: 2px 2px;
+}
+/* line 87, ../sass/codeconsole.scss */
+body #StatusBar .status-bar-text {
+  height: 14px;
+  overflow: hidden;
+  cursor: pointer;
+}
+/* line 93, ../sass/codeconsole.scss */
+body #StatusBar .status-bar-right {
+  float: right;
+  margin-left: 2px;
+  width: 50px;
+  height: 14px;
+}
+/* line 100, ../sass/codeconsole.scss */
+body #StatusBar .status-bar-right-icon {
+  float: right;
+  margin-left: 2px;
+  text-align: center;
+  width: 16px;
+  height: 14px;
+  cursor: pointer;
+}
+/* line 109, ../sass/codeconsole.scss */
+body #StatusBar .status-bar-right-icon:active {
+  -ms-opacity: 0.6;
+  opacity: 0.6;
+}
+/* line 114, ../sass/codeconsole.scss */
+body #StatusBar .status-bar-script {
+  float: right;
+  margin-left: 2px;
+  width: 500px;
+}
+/* line 120, ../sass/codeconsole.scss */
+body #StatusBar .status-bar-left {
+  float: left;
+  margin-right: 2px;
+  padding-left: 3px;
+  width: 80px;
 }

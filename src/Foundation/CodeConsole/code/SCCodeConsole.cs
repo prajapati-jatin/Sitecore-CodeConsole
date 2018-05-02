@@ -66,6 +66,15 @@ namespace Sitecore.Foundation.CodeConsole
             return output.ToString();
         }
 
+        public String ExecuteAssembly(String assemblyPath)
+        {
+            Assembly assemblyToExecute = LoadAssembly(assemblyPath);
+            Type scCode = assemblyToExecute.GetType("SCCodeConsole.SCCode");
+            object scCodeObject = Activator.CreateInstance(scCode);
+            var output = scCode.InvokeMember("Execute", BindingFlags.Default | BindingFlags.InvokeMethod, null, scCodeObject, null);
+            return output.ToString();
+        }
+
         private string GetCompilationErrors(CompilerErrorCollection errors)
         {
             StringBuilder sbErrors = new StringBuilder();

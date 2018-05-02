@@ -1,0 +1,40 @@
+﻿---
+ID: "5aab5158-9d33-4432-8be3-c928606a8b47"
+Parent: "603a85f5-84bc-41c9-97b9-6a3d9cdacf7f"
+Template: "eb06cec0-5e2d-4dc4-875b-01adcc577d13"
+Path: /sitecore/content/Applications/Code Console/Code console
+DB: core
+SharedFields:
+- ID: "7c90bfde-f50c-4cda-94ca-ce712c9675c6"
+  Hint: Window Mode
+  Value: Maximized
+- ID: "bde5f757-a8a4-4ffd-a38b-e0dcca84f210"
+  Hint: Window type
+  Value: Window
+- ID: "c687aa26-a85d-4c42-b32e-11e5faecdf05"
+  Hint: Chrome
+  Value: WindowChrome
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{2E845A25-24A5-410A-AB1F-BDE31EC8D39A}" />
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180430T051459Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "67b6378b-c9f1-47c7-9cac-bfa79b0727d9"
+      Hint: Display name
+      Value: Code Console

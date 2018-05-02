@@ -1,0 +1,18 @@
+﻿---
+ID: "3dc5b09d-5691-4728-bbc9-5b0c038766eb"
+Parent: "5aab5158-9d33-4432-8be3-c928606a8b47"
+Template: "3a1a3b48-3434-4e5a-8f05-ad6e1687d888"
+Path: /sitecore/content/Applications/Code Console/Code console/Ribbon
+DB: core
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180430T121501Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

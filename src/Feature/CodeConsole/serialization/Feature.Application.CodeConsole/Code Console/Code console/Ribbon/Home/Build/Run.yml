@@ -1,0 +1,32 @@
+﻿---
+ID: "55a250ff-8ec2-4853-a5c6-ae930d802fed"
+Parent: "a8346b3a-e840-4895-aa6f-596d1cfcc330"
+Template: "97b61451-9a75-4f59-93a5-dbd8d4f44421"
+Path: /sitecore/content/Applications/Code Console/Code console/Ribbon/Home/Build/Run
+DB: core
+SharedFields:
+- ID: "f5a07916-7bca-4fba-857c-a5d166c332d4"
+  Hint: Icon
+  Value: Office/32x32/media_play.png
+- ID: "fc6b80f1-406d-47f0-a2b3-fcd7a8ea9d74"
+  Hint: Click
+  Value: "codeconsole:execute"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b11f9f5f-88fc-48c5-9501-2e827ef40ead"
+    Hint: Header
+    Value: Run
+  - ID: "db8c4e34-586c-4ded-bc95-b993fc3a01a8"
+    Hint: Tooltip
+    Value: Execute the code.
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180430T121635Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
