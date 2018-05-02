@@ -1,0 +1,14 @@
+﻿---
+ID: "2c3bba10-6a3c-462c-af70-52e0fd1f81dd"
+Parent: "92716651-f1f4-495f-b75c-398990ffda7b"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/layout/Layouts/Applications/Foundation/Code Console
+DB: core
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180430T060724Z

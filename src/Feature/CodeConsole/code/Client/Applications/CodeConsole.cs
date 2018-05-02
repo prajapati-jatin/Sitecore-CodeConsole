@@ -178,6 +178,7 @@ namespace Sitecore.Feature.CodeConsole.Client.Applications
         protected void SetCodeModified(Message message)
         {
             CodeModified = true;
+            Compiled = false;
         }
 
         [HandleMessage("codeconsole:updateribbon")]

@@ -1,0 +1,14 @@
+﻿---
+ID: "92716651-f1f4-495f-b75c-398990ffda7b"
+Parent: "fa21db1e-3f70-4201-9245-98a864582651"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/layout/Layouts/Applications/Foundation
+DB: core
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180502T094430Z
