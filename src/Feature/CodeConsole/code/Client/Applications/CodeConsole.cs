@@ -113,9 +113,20 @@ namespace Sitecore.Feature.CodeConsole.Client.Applications
             {
                 this.CompileCode(this.Editor.Value);
             }
-            args.Parameters.Add("message", "codeconsole:execute");
-            var output = this.compiler.ExecuteAssembly(AssemblyPath);
-            UpdateElementText("ScriptResult", output);
+            if (Compiled)
+            {
+                args.Parameters.Add("message", "codeconsole:execute");
+                try
+                {
+                    var output = this.compiler.ExecuteAssembly(AssemblyPath);
+                    UpdateElementText("ScriptResult", output);
+                }
+                catch (Exception ex)
+                {
+                    var runtimeError = $"Runtime error:\n{ex.InnerException.Message} -> {ex.InnerException.StackTrace}";
+                    UpdateElementText("ScriptResult", runtimeError);
+                }
+            }
         }
 
         private void CompileCode(String codeToCompile)
@@ -134,10 +145,16 @@ namespace Sitecore.Feature.CodeConsole.Client.Applications
                 var errors = new System.Text.StringBuilder("Build error(s) found!").AppendLine();
                 foreach (CompilerError error in results.Errors)
                 {
-                    errors.AppendLine($"{error.ErrorNumber}::{error.ErrorText}");
+                    if (error.IsWarning)
+                    {
+                        errors.AppendLine($"<div class=\"warning\"><strong>{error.ErrorNumber}</strong> {error.ErrorText}</div>");
+                    }
+                    else
+                    {
+                        errors.AppendLine($"<div class=\"error\"><strong>{error.ErrorNumber}</strong> {error.ErrorText}</div>");
+                    }
                 }
                 this.UpdateElementText("ScriptResult", errors.ToString());
-                this.UpdateElementText("ScriptResult", "Build error(s) found!");
                 this.ScriptRunning = false;
                 this.Compiled = false;
             }
